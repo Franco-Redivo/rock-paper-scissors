@@ -6,10 +6,13 @@ function getComputerChoice(){
     
     if(randomNumber === 0){
         choice = "rock";
+        console.log("computer picked rock");
     }else if(randomNumber === 1){
         choice = "paper";
+        console.log("computer picked paper");
     }else{
         choice = "scissors";
+        console.log("computer picked scissors");
     }
     
     return choice;
@@ -22,45 +25,31 @@ function getHumanChoice(){
 
     choice = choice.toLowerCase();
 
+    console.log("you picked " + choice);
     return choice;
 }
 
 //playRound function takes the human and the computer choice as parameters and compares the two choices and returns "win" , "lose" or "draw" depending on the outcome.
 function playRound(humanChoice, computerChoice){
     
-    
-    if(humanChoice==="rock" && computerChoice ==="paper"){
-        
-        return "lose";
-
-    }else if(humanChoice==="paper" && computerChoice==="scissors"){
-        
-        return "lose";
-
-    }else if(humanChoice==="scissors" && computerChoice==="rock"){
-        
-        return "lose";
+    if((humanChoice==="rock" && computerChoice ==="paper")|| 
+       (humanChoice==="paper" && computerChoice==="scissors")||
+       (humanChoice==="scissors" && computerChoice==="rock")){
+            console.log("You lose! " + computerChoice + " beats " + humanChoice);
+            return "lose";
 
     }else if(humanChoice === computerChoice){
-        
+        console.log("It's a draw!");
         return "draw";
-    }else if(humanChoice==="rock" && computerChoice ==="scissors"){
 
-        return "win";
-
-    }else if(humanChoice==="paper" && computerChoice==="rock"){
-
-        return "win";
-
-    }else if(humanChoice==="scissors" && computerChoice==="paper"){
-
-        return "win";
-
+    }else if((humanChoice==="rock" && computerChoice ==="scissors")||
+             (humanChoice==="paper" && computerChoice==="rock")||
+             (humanChoice==="scissors" && computerChoice==="paper")){
+                console.log("You won! " + humanChoice + " beats " + computerChoice);
+                return "win";
     }else{
-        
         return "error";
     }
-
 
 }
 
@@ -92,9 +81,12 @@ function playGame(){
             humanScore = humanScore + 1;
         }
 
+        console.log("Your score: " + humanScore + " Computer score: " + computerScore);
+        console.log('\n');
+
     }
     
-    return console.log("Final score. Human : " + humanScore + " , computer : " + computerScore);
+    return console.log("Final score. You : " + humanScore + " , computer : " + computerScore);
 }
 
 playGame();
