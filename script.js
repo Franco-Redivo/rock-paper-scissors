@@ -1,5 +1,6 @@
-//a variable storing the users input choice
-let userChoice;
+//score variables
+let humanScore = 0;
+let machineScore = 0;
 
 //getComputerChoice function creates a random number between 0 and 2.
 function getComputerChoice(){
@@ -13,14 +14,30 @@ function getComputerChoice(){
     }else{
         choice = "scissors";
     }
-
+    
     return choice;
 }
 
+// asign the choice to the computerChoice variable
 let computerChoice = getComputerChoice();
 
 
+//a variable storing the users input choice
+function getHumanChoice(){
+    let choice = prompt("chose between rock, paper and scissors :");
+    let possibleChoices = ["rock", "paper", "scissors"];
 
+    choice = choice.toLowerCase();
+
+    if(choice in possibleChoices){
+        return choice;
+    }else{
+        console.log("Wrong input");
+    }
+}
+
+//asign the choice to the userChoice variable
+let userChoise = getHumanChoice();
 
 
 //compare the 2 variables to see who one
